@@ -22,7 +22,11 @@ class Neko(NekoFy):
         self.raw = "https://nekobin.com/raw/" + result["key"]
         self.title = result["title"]
         self.author = result["author"]
-        self.date = datetime.fromtimestamp(result["date"])
-        self.views = result["views"]
+        self.date = self.format_date(result["date"])
         self.length = result["length"]
         self.content = result["content"]
+
+    def format_date(self, date: str):
+        dt_obj = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S.%fZ')
+        py_timestamp = dt_obj.timestamp()
+        return datetime.fromtimestamp(py_timestamp)
