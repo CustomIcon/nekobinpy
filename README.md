@@ -48,7 +48,6 @@ async def main():
     if neko.author:
         output += "Author: " + neko.author + "\n"
     output += "Date: " + str(neko.date) + "\n"
-    output += "Views: " + str(neko.views) + "\n"
     output += "Length: " + str(neko.length) + "\n"
     output += "Content: " + neko.content + "\n"
     print(output)
